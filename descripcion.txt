@@ -1,0 +1,70 @@
+Hero Classes – Final Roster 🌴 Caleño — The Charismatic Healer Style: Agile support unit.
+
+Specialty: Best LCK in the game, solid healing, and can keep the team alive through long fights.
+
+Stats:
+
+HP: 60, ATK: 7, DEF: 7, SPD: 12, LCK: 19
+
+Total: 105
+
+🏖️ Costeño — The Party Tank Style: High HP defender with low LCK and SPD.
+
+Specialty: Soaks up damage like a champ. Hard to kill, great for frontline.
+
+Stats:
+
+HP: 80, ATK: 9, DEF: 15, SPD: 5, LCK: 6
+
+Total: 115
+
+🏔️ Paisa — The Balanced Brawler Style: All-rounder.
+
+Specialty: Decent in all areas. Flexible in any role, but master of none.
+
+Stats:
+
+HP: 70, ATK: 12, DEF: 10, SPD: 8, LCK: 10
+
+Total: 110
+
+🌿 Amazonas — The Iron Woman Style: Defensive warrior with surprising speed.
+
+Specialty: Great for stalling or punishing with well-timed hits.
+
+Stats:
+
+HP: 65, ATK: 11, DEF: 14, SPD: 10, LCK: 5
+
+Total: 105
+
+🐎 Llanero — The Glass Cannon Style: Fast, aggressive striker.
+
+Specialty: High ATK and SPD, but low defenses. Requires smart play.
+
+Stats:
+
+HP: 55, ATK: 18, DEF: 6, SPD: 13, LCK: 8
+
+Total: 100
+
+🌧️ Chocoano — The Tough Boi Style: Tank with a trick.
+
+Specialty: First hit always misses. Ideal for soaking key openers.
+
+Stats:
+
+HP: 75, ATK: 10, DEF: 14, SPD: 6, LCK: 5
+
+Total: 110
+
+Chocoano -> Tuff boi.
+Description: Ma boi is so tuff, that the first attack you through at him is always a miss.
+
+Stat	Value	Notes
+HP	75	Good endurance
+ATK	10	Can still punch
+DEF	14	Soaks up damage
+SPD	6	Slow but steady
+LCK	5	Doesn’t rely on chance
+Total	110	Slightly tankier, but balanced by passive being one-time-only
