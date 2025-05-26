@@ -1,5 +1,3 @@
-#items.h
-
 class Item {
 protected:
     std::string nombre;
