@@ -1,0 +1,217 @@
+classDiagram
+    %% Clase base abstracta para todos los personajes
+    class Character {
+        <<abstract>>
+        #string name
+        #int hp
+        #int maxHp
+        #int atk
+        #int def
+        #int spd
+        #int lck
+        +Character(name, hp, atk, def, spd, lck)
+        +getName() string
+        +getHp() int
+        +getMaxHp() int
+        +getAtk() int
+        +getDef() int
+        +getSpd() int
+        +getLck() int
+        +takeDamage(damage: int) void
+        +heal(amount: int) void
+        +isAlive() bool
+        +displayStats() void
+        +attack(target: Character*) int
+        +calculateDamage(attacker: Character*, defender: Character*) int
+        +calculateHitChance(attacker: Character*, defender: Character*) bool
+    }
+
+    %% Clase Héroe que hereda de Character
+    class Hero {
+        -Item* weapon
+        -Item* armor
+        -vector~Potion*~ potions
+        -int totalHealthLost
+        +Hero(name, hp, atk, def, spd, lck)
+        +equipWeapon(weapon: Item*) void
+        +equipArmor(armor: Item*) void
+        +addPotion(potion: Potion*) void
+        +usePotion(index: int) void
+        +getEquippedWeapon() Item*
+        +getEquippedArmor() Item*
+        +getPotions() vector~Potion*~
+        +getTotalHealthLost() int
+        +addHealthLost(amount: int) void
+        +boostStats(percentage: float) void
+        +getTotalStats() int
+        +displayEquipment() void
+    }
+
+    %% Clase Enemy que hereda de Character
+    class Enemy {
+        -string type
+        +Enemy(name, hp, atk, def, spd, lck, type)
+        +getType() string
+    }
+
+    %% Clase base abstracta para todos los items
+    class Item {
+        <<abstract>>
+        #string name
+        #string rarity
+        #int statBoost1
+        #int statBoost2
+        #string affectedStat1
+        #string affectedStat2
+        +Item(name, rarity, statBoost1, statBoost2, affectedStat1, affectedStat2)
+        +getName() string
+        +getRarity() string
+        +getStatBoost1() int
+        +getStatBoost2() int
+        +getAffectedStat1() string
+        +getAffectedStat2() string
+        +applyBonus(character: Character*) void
+        +displayInfo() void
+    }
+
+    %% Clase Weapon que hereda de Item
+    class Weapon {
+        +Weapon(name, rarity, atkBoost, secondaryBoost, secondaryStat)
+        +getWeaponType() string
+    }
+
+    %% Clase Armor que hereda de Item
+    class Armor {
+        +Armor(name, rarity, defBoost, secondaryBoost, secondaryStat)
+        +getArmorType() string
+    }
+
+    %% Clase Potion que hereda de Item
+    class Potion {
+        -bool isUsed
+        +Potion(name, statBoost1, statBoost2, affectedStat1, affectedStat2)
+        +use(character: Character*) void
+        +isUsed() bool
+        +resetUsage() void
+    }
+
+    %% Clase para manejar el inventario
+    class Inventory {
+        -vector~Weapon*~ weapons
+        -vector~Armor*~ armors
+        -vector~Potion*~ potions
+        +Inventory()
+        +initializeItems() void
+        +getRandomWeapon(rarity: string) Weapon*
+        +getRandomArmor(rarity: string) Armor*
+        +getRandomPotion() Potion*
+        +getWeapons() vector~Weapon*~
+        +getArmors() vector~Armor*~
+        +getPotions() vector~Potion*~
+        +displayAvailableItems() void
+    }
+
+    %% Clase para manejar las batallas
+    class Battle {
+        -vector~Hero*~ heroes
+        -vector~Enemy*~ enemies
+        -int currentTurn
+        +Battle(heroes: vector~Hero*, enemies: vector~Enemy*)
+        +startBattle() bool
+        +calculateTurnOrder() vector~Character*~
+        +executeTurn(character: Character*) void
+        +checkBattleEnd() bool
+        +displayBattleStatus() void
+        +getWinner() string
+        +heroAction(hero: Hero*) void
+        +enemyAction(enemy: Enemy*) void
+    }
+
+    %% Clase para manejar las salas
+    class Room {
+        -int roomNumber
+        -vector~Enemy*~ enemies
+        -string roomType
+        -bool isCleared
+        +Room(roomNumber, enemies, roomType)
+        +getRoomNumber() int
+        +getEnemies() vector~Enemy*~
+        +getRoomType() string
+        +isRoomCleared() bool
+        +clearRoom() void
+        +displayRoomInfo() void
+        +getItemReward() Item*
+    }
+
+    %% Clase principal del juego
+    class Game {
+        -vector~Hero*~ availableHeroes
+        -vector~Hero*~ playerTeam
+        -vector~Enemy*~ availableEnemies
+        -vector~Room*~ dungeon
+        -Inventory* inventory
+        -string playerName
+        -int currentRoom
+        -int totalHealthLost
+        -ScoreManager* scoreManager
+        +Game()
+        +~Game()
+        +startGame() void
+        +showMainMenu() void
+        +selectHeroes() void
+        +playGame() void
+        +initialMarket() void
+        +processRoom(roomNum: int) void
+        +handleSpecialEvents(roomNum: int) void
+        +checkGameEnd() bool
+        +calculateScore() int
+        +displayGameStats() void
+        +initializeHeroes() void
+        +initializeEnemies() void
+        +initializeDungeon() void
+    }
+
+    %% Clase para manejar puntuaciones
+    class ScoreManager {
+        -vector~Score~ scores
+        -string filename
+        +ScoreManager(filename: string)
+        +loadScores() void
+        +saveScore(playerName: string, roomReached: int, healthLost: int) void
+        +displayLeaderboard() void
+        +getTopScores(limit: int) vector~Score~
+        +sortScores() void
+    }
+
+    %% Estructura para las puntuaciones
+    class Score {
+        +string playerName
+        +int roomReached
+        +int totalHealthLost
+        +string timestamp
+        +Score(playerName, roomReached, healthLost, timestamp)
+        +operator<(other: Score) bool
+    }
+
+    %% Relaciones de herencia
+    Character <|-- Hero
+    Character <|-- Enemy
+    Item <|-- Weapon
+    Item <|-- Armor
+    Item <|-- Potion
+
+    %% Relaciones de composición y agregación
+    Game *-- ScoreManager
+    Game *-- Inventory
+    Game o-- Hero
+    Game o-- Enemy
+    Game *-- Room
+    Hero o-- Item
+    Hero o-- Potion
+    Battle o-- Hero
+    Battle o-- Enemy
+    Room o-- Enemy
+    Inventory o-- Weapon
+    Inventory o-- Armor
+    Inventory o-- Potion
+    ScoreManager o-- Score
