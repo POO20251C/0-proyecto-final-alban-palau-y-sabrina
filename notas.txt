@@ -1,0 +1,38 @@
+#Notes on gameplay :)
+
+Heroes:
+
+Caleño, Costeño, Paisa, Amazonas, Llanero, Chocoano.
+Crear clases de héroes pero un juego con temática Colombiana.
+//
+
+Enemies:
+
+Soldier, mini-boss, boss. In ascending order of strength obviously.
+
+//
+
+Shop system: Figure this out :/
+
+//
+
+Inventory: 50 items. An item can only affect 2 stats at once. (Weapons, gear and potions).
+
+//
+
+Battle system: Turn-based, 10 stages. Mini in 8 and boss in 10.
+
+Start of the game: (Eventless stages will have soldiers as well).
+
+Take a common weapon and armor. Before fight.
+Stage 1 and 2 eventless.
+Stage 3: Lucky chest. Pick between +2 luck or 3 hp potions.
+Stage 4 and 5 eventless.
+Stage 6: After fight get 3 rare weapons (+8 atk and +5 lck). (Work on this stage).
+Stage 7 eventless.
+Stage 8: After fight with mini boss, replenish health.
+Stage 9 eventless.
+Stage 10: Boss
+
+
+U lose a stage if 2 of your 3 heroes die. If u win, heroes stats boosted by 2% alway
